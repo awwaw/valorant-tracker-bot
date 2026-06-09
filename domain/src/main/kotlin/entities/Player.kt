@@ -1,7 +1,5 @@
 package org.example.entities
 
-import java.util.UUID
-
 enum class PlayerRegion {
     EU,
     NA,
@@ -9,11 +7,18 @@ enum class PlayerRegion {
     BR,
     AP,
     KR,
+    ;
+
+    companion object {
+        fun from(region: String): PlayerRegion =
+            entries.find { it.name.equals(region, ignoreCase = true) }
+                ?: error("Unknown region: $region")
+    }
 }
 
 data class Player(
     val id: Long,
-    val puid: UUID,
+    val puid: String,
     val name: String,
     val tag: String,
     val region: PlayerRegion,
