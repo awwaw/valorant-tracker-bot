@@ -1,20 +1,22 @@
 plugins {
     kotlin("jvm")
+    kotlin("plugin.spring") version "2.4.0"
 }
 
 group = "org.example"
 version = "unspecified"
 
-repositories {
-    mavenCentral()
-}
-
 dependencies {
-    testImplementation(kotlin("test"))
-}
+    implementation(project(":domain"))
+    implementation(project(":infrastructure"))
 
-kotlin {
-    jvmToolchain(21)
+    implementation("org.springframework:spring-tx:6.1.13")
+    implementation("org.springframework:spring-context:6.1.13")
+    implementation("org.springframework.boot:spring-boot-autoconfigure:3.3.4")
+
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.1")
+
+    testImplementation(kotlin("test"))
 }
 
 tasks.test {

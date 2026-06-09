@@ -1,8 +1,7 @@
-package repository
+package org.example.repository
 
+import generated.db.tables.Player.Companion.PLAYER
 import org.example.entities.Player
-import org.example.infrastructure.db.tables.references.PLAYER
-import org.example.repository.toModel
 import org.jooq.DSLContext
 import org.springframework.stereotype.Repository
 

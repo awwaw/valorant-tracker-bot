@@ -1,13 +1,14 @@
 package org.example.repository
 
+import generated.db.tables.records.MatchRecord
+import generated.db.tables.records.PlayerRecord
+import generated.db.tables.records.PlayerSnapshotRecord
 import org.example.entities.Match
 import org.example.entities.Player
 import org.example.entities.PlayerRegion
 import org.example.entities.PlayerSnapshot
-import org.example.infrastructure.db.tables.records.MatchRecord
-import org.example.infrastructure.db.tables.records.PlayerRecord
-import org.example.infrastructure.db.tables.records.PlayerSnapshotRecord
 import org.example.stats.PlayerMatchStats
+import kotlin.time.toKotlinInstant
 
 fun PlayerRecord.toModel(): Player =
     Player(
@@ -40,7 +41,7 @@ fun PlayerSnapshotRecord.toModel(): PlayerSnapshot =
     PlayerSnapshot(
         id = id!!,
         playerId = playerId!!,
-        takenAt = takenAt!!.toInstant(),
+        takenAt = takenAt!!.toInstant().toKotlinInstant(),
         tierName = tierName!!,
         rr = rr!!,
         elo = elo!!,

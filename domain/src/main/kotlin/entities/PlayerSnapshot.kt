@@ -1,6 +1,6 @@
 package org.example.entities
 
-import java.time.Instant
+import kotlin.time.Instant
 
 data class PlayerSnapshot(
     val id: Long,

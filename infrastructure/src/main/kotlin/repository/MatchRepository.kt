@@ -1,8 +1,7 @@
-package repository
+package org.example.repository
 
+import generated.db.tables.references.MATCH
 import org.example.entities.Match
-import org.example.infrastructure.db.tables.references.MATCH
-import org.example.repository.toModel
 import org.jooq.DSLContext
 import org.springframework.stereotype.Repository
 import java.time.OffsetDateTime

@@ -11,6 +11,7 @@ version = "unspecified"
 dependencies {
     implementation(project(":domain"))
     implementation(project(":infrastructure"))
+    implementation(project(":application"))
 
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-jooq")
@@ -18,6 +19,8 @@ dependencies {
     implementation("org.flywaydb:flyway-database-postgresql")
     implementation("org.postgresql:postgresql")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
+
+    implementation("org.springframework.cloud:spring-cloud-starter-openfeign:4.1.3")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
