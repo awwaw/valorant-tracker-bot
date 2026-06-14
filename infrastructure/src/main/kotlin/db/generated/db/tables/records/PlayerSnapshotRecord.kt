@@ -50,6 +50,10 @@ open class PlayerSnapshotRecord() : UpdatableRecordImpl<PlayerSnapshotRecord>(Pl
         set(value): Unit = set(7, value)
         get(): Int? = get(7) as Int?
 
+    open var lastMatchPlayedAt: OffsetDateTime?
+        set(value): Unit = set(8, value)
+        get(): OffsetDateTime? = get(8) as OffsetDateTime?
+
     // -------------------------------------------------------------------------
     // Primary key information
     // -------------------------------------------------------------------------
@@ -59,7 +63,7 @@ open class PlayerSnapshotRecord() : UpdatableRecordImpl<PlayerSnapshotRecord>(Pl
     /**
      * Create a detached, initialised PlayerSnapshotRecord
      */
-    constructor(id: Long? = null, playerId: Long? = null, takenAt: OffsetDateTime? = null, tierName: String? = null, rr: Int? = null, elo: Int? = null, wins: Int? = null, losses: Int? = null): this() {
+    constructor(id: Long? = null, playerId: Long? = null, takenAt: OffsetDateTime? = null, tierName: String? = null, rr: Int? = null, elo: Int? = null, wins: Int? = null, losses: Int? = null, lastMatchPlayedAt: OffsetDateTime? = null): this() {
         this.id = id
         this.playerId = playerId
         this.takenAt = takenAt
@@ -68,6 +72,7 @@ open class PlayerSnapshotRecord() : UpdatableRecordImpl<PlayerSnapshotRecord>(Pl
         this.elo = elo
         this.wins = wins
         this.losses = losses
+        this.lastMatchPlayedAt = lastMatchPlayedAt
         resetChangedOnNotNull()
     }
 }

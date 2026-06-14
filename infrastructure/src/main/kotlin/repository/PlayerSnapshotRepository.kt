@@ -5,6 +5,7 @@ import org.example.entities.PlayerSnapshot
 import org.jooq.DSLContext
 import org.springframework.stereotype.Repository
 import java.time.ZoneOffset
+import kotlin.time.Instant
 import kotlin.time.toJavaInstant
 
 @Repository
@@ -24,7 +25,10 @@ class PlayerSnapshotRepository(
             .set(PLAYER_SNAPSHOT.ELO, snapshot.elo)
             .set(PLAYER_SNAPSHOT.WINS, snapshot.wins)
             .set(PLAYER_SNAPSHOT.LOSSES, snapshot.losses)
-            .execute()
+            .set(
+                PLAYER_SNAPSHOT.LAST_MATCH_PLAYED_AT,
+                snapshot.lastMatchPlayedAt?.toJavaInstant()?.atOffset(ZoneOffset.UTC),
+            ).execute()
     }
 
     fun findLatestByPlayerId(playerId: Long): PlayerSnapshot? =
@@ -35,4 +39,12 @@ class PlayerSnapshotRepository(
             .limit(1)
             .fetchOne()
             ?.toModel()
+
+    fun updateTakenAt(id: Long, takenAt: Instant) {
+        dsl
+            .update(PLAYER_SNAPSHOT)
+            .set(PLAYER_SNAPSHOT.TAKEN_AT, takenAt.toJavaInstant().atOffset(ZoneOffset.UTC))
+            .where(PLAYER_SNAPSHOT.ID.eq(id))
+            .execute()
+    }
 }

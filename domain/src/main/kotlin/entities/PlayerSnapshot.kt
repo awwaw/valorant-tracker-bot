@@ -11,4 +11,5 @@ data class PlayerSnapshot(
     val elo: Int,
     val wins: Int,
     val losses: Int,
+    val lastMatchPlayedAt: Instant?,
 )

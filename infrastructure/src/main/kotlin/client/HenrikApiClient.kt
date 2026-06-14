@@ -12,6 +12,7 @@ interface HenrikApiClient {
         @PathVariable region: String,
         @PathVariable name: String,
         @PathVariable tag: String,
+        @RequestParam(value = "mode", required = false) mode: String? = null,
         @RequestParam(value = "size", required = false) size: Int? = null,
         @RequestParam(value = "page", required = false) page: Int? = null
     ): StoredMatchesResponse

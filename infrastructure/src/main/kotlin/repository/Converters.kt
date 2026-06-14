@@ -47,4 +47,5 @@ fun PlayerSnapshotRecord.toModel(): PlayerSnapshot =
         elo = elo!!,
         wins = wins!!,
         losses = losses!!,
+        lastMatchPlayedAt = lastMatchPlayedAt?.toInstant()?.toKotlinInstant(),
     )

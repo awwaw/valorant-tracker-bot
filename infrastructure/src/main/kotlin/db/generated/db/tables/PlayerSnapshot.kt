@@ -116,6 +116,11 @@ open class PlayerSnapshot(
      */
     val LOSSES: TableField<PlayerSnapshotRecord, Int?> = createField(DSL.name("losses"), SQLDataType.INTEGER.nullable(false), this, "")
 
+    /**
+     * The column <code>public.player_snapshot.last_match_played_at</code>.
+     */
+    val LAST_MATCH_PLAYED_AT: TableField<PlayerSnapshotRecord, OffsetDateTime?> = createField(DSL.name("last_match_played_at"), SQLDataType.TIMESTAMPWITHTIMEZONE(6), this, "")
+
     private constructor(alias: Name, aliased: Table<PlayerSnapshotRecord>?): this(alias, null, null, null, aliased, null, null)
     private constructor(alias: Name, aliased: Table<PlayerSnapshotRecord>?, parameters: Array<Field<*>?>?): this(alias, null, null, null, aliased, parameters, null)
     private constructor(alias: Name, aliased: Table<PlayerSnapshotRecord>?, where: Condition?): this(alias, null, null, null, aliased, null, where)

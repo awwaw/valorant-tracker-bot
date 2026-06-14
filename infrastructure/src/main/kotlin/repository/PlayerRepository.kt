@@ -57,4 +57,10 @@ class PlayerRepository(
             .where(PLAYER.ID.eq(id))
             .execute()
     }
+
+    fun findAll(): List<Player> =
+        dslContext
+            .selectFrom(PLAYER)
+            .fetch()
+            .map { it.toModel() }
 }

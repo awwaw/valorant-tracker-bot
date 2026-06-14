@@ -55,6 +55,7 @@ class PlayerService(
                 elo = mmr.current.elo,
                 wins = wins,
                 losses = losses,
+                lastMatchPlayedAt = null,
             )
         playerSnapshotRepository.save(snapshot, player.id)
 
