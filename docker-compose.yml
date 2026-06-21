@@ -11,7 +11,7 @@ services:
       - "5432:5432"
 
   app:
-    image: ghcr.io/wawawa/valorant-tracker-bot:latest
+    image: ghcr.io/awwaw/valorant-tracker-bot:latest
     environment:
       DB_HOST: db
       DB_USER: ${DB_USER}
