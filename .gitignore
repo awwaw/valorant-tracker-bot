@@ -44,6 +44,4 @@ bin/
 .DS_Store
 
 ### Secrets ###
-**/application.yml
-**/application.yaml
 **/.env

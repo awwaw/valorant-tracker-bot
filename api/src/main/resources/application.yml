@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://${DB_HOST:localhost}:5432/valorant_tracker
+    username: ${DB_USER:tracker}
+    password: ${DB_PASSWORD:tracker}
+  flyway:
+    locations: classpath:db/migration
+    baseline-on-migrate: true
+    baseline-version: 1
+  cloud:
+    openfeign:
+      client:
+        config:
+          henrik-api:
+            connect-timeout: 10000
+            read-timeout: 10000
+henrik:
+  base-url: https://api.henrikdev.xyz
+  api-key: ${HENRIK_API_KEY}

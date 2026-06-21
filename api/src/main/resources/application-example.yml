@@ -1,9 +1,0 @@
-spring:
-  datasource:
-    url: jdbc:postgresql://localhost:5432/valorant_tracker
-    username: tracker
-    password: tracker
-  flyway:
-    locations: classpath:db/migration
-    baseline-on-migrate: true
-    baseline-version: 1
