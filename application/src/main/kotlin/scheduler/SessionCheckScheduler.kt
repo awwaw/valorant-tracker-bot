@@ -13,7 +13,7 @@ class SessionCheckScheduler(
 ) {
     private val logger = LoggerFactory.getLogger(this::class.java)
 
-    @Scheduled(cron = "* * * * * *")
+    @Scheduled(cron = "0 0 * * * *")
     fun checkAllPlayers() {
         val players = playerRepository.findAll() // Тут бы пагинацию по хорошему
         logger.info("Running session check for ${players.size} players")
