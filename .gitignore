@@ -46,3 +46,4 @@ bin/
 ### Secrets ###
 **/application.yml
 **/application.yaml
+**/.env
